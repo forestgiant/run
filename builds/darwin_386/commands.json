@@ -1,0 +1,13 @@
+[{
+	"path": "",
+	"name": "ls",
+	"args": ["-all", "-G"],
+	"sleep": 500
+}, {
+	"path": "",
+	"name": "ls",
+	"args": ["-aG"],
+	"sleep": 500
+}, {
+	"name": "pwd"
+}]
