@@ -1,11 +1,11 @@
 # run
 Go (golang) tool to read system commands from a JSON file and execute them.
 
-# Install
+## Install
 `go get -u github.com/forestgiant/run`
 
-# Usage
-Create a commands.json
+## Usage
+After install, create a commands.json
 ```
 [{
 	"path": "",
@@ -24,3 +24,6 @@ Create a commands.json
 
 Now run all the commands in order:
 `run ./commands.json`
+
+## Builds
+* [OS X (Darwin)](https://github.com/forestgiant/run/tree/master/builds/darwin_386)
