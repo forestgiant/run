@@ -1,5 +1,5 @@
 # run
-Read commands from a JSON file and run them.
+Go (golang) tool to read system commands from a JSON file and execute them.
 
 # Install
 `go get -u github.com/forestgiant/run`
