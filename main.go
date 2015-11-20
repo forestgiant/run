@@ -13,7 +13,7 @@ import (
 	"github.com/jesselucas/executil"
 )
 
-const VERSION = "0.0.3"
+const Version = "0.0.4"
 
 var (
 	wg sync.WaitGroup
@@ -33,7 +33,7 @@ func main() {
 	var (
 		configPathUsage = fmt.Sprint("Path to config json.")
 		configPathPtr   = flag.String("configpath", jsonConfigPathDefault, configPathUsage)
-		versionUsage    = "Prints current version" + " (v. " + VERSION + ")"
+		versionUsage    = "Prints current version" + " (v. " + Version + ")"
 		versionPtr      = flag.Bool("version", false, versionUsage)
 	)
 	// Set up short hand flags
@@ -41,7 +41,7 @@ func main() {
 	flag.Parse()
 
 	if *versionPtr {
-		fmt.Println(VERSION)
+		fmt.Println(Version)
 		os.Exit(0)
 	}
 
@@ -61,7 +61,9 @@ func main() {
 
 func run(sleep time.Duration, path string, command string, args ...string) {
 	fmt.Println("[Installer] Running: ", command, args)
-	err := executil.CmdStart(command, args...)
+	cmd := executil.Command(command, args...)
+	cmd.OutputPrefix = command
+	err := cmd.StartAndWait()
 	if err != nil {
 		fmt.Println(err)
 	}
